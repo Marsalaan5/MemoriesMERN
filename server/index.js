@@ -77,7 +77,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import postRoutes from './routes/post.js';
+import postRoutes from './routes/posts.js';
 
 dotenv.config();
 const app = express();
@@ -100,40 +100,40 @@ mongoose.connect(CONNECTION_URL)
   .then(() => app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`)))
   .catch((error) => {
     console.error(`Error connecting to MongoDB: ${error}`);
-    process.exit(1);  // Exit the process with a failure status
+
   });
 
 
-const itemSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    description: { type: String },
-    price: { type: Number, required: true },
-    createdAt: { type: Date, default: Date.now },
-  },
-  { collection: 'memo' }
-);
+// const itemSchema = new mongoose.Schema(
+//   {
+//     name: { type: String, required: true },
+//     description: { type: String },
+//     price: { type: Number, required: true },
+//     createdAt: { type: Date, default: Date.now },
+//   },
+//   { collection: 'memo' }
+// );
 
-const Item = mongoose.model('Item', itemSchema);
+// const Item = mongoose.model('Item', itemSchema);
 
 
-app.get('/api/items', async (req, res) => {
-  try {
-    const items = await Item.find();
-    res.json(items);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// app.get('/api/items', async (req, res) => {
+//   try {
+//     const items = await Item.find();
+//     res.json(items);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
-// Add a New Item (POST)
-app.post('/api/items', async (req, res) => {
-  try {
-    const { name, description, price } = req.body;
-    const newItem = new Item({ name, description, price });
-    const savedItem = await newItem.save();
-    res.status(201).json(savedItem);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+// // Add a New Item (POST)
+// app.post('/api/items', async (req, res) => {
+//   try {
+//     const { name, description, price } = req.body;
+//     const newItem = new Item({ name, description, price });
+//     const savedItem = await newItem.save();
+//     res.status(201).json(savedItem);
+//   } catch (err) {
+//     res.status(400).json({ message: err.message });
+//   }
+// });

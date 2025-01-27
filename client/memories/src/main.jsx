@@ -22,7 +22,12 @@ const theme = createTheme({
     secondary: {
       main: '#dc004e',
     },
+    red: {
+      main: '#ff2c2c',
+    },
   },
+
+  
 });
 
 
