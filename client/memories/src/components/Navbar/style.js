@@ -2,21 +2,34 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: theme.palette.primary.main,
+   
+    zIndex: theme.zIndex.drawer + 1, 
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-end',
+    alignItems: 'center',
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: '1.5rem',
+    flexGrow: 1,
+    fontWeight: 700,
+  },
+  menuButton: {
+    color: 'white',
+    // fontWeight:'600'
+  },
+  navLinks: {
+    display: 'flex',
+    gap: '1rem',
+    
   },
   navButton: {
-    color: 'white',
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark,
-    },
+    fontWeight: 'bold',
+    // fontWeight:'600'
+  },
+  drawerList: {
+    width: 250,
+    padding: '10px',
   },
 }));
 
