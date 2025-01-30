@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import About from "./components/About/About.jsx";
+import Login from "./components/Login/Login.jsx";
+import Signup from "./components/SignUp/Signup.jsx";
 
 function App() {
   const [currentId, setCurrentId] = useState(0);
@@ -31,6 +33,10 @@ function App() {
       return " About";
     } else if (location.pathname === "/posts") {
       return "All Posts";
+    } else if (location.pathname === "/login") {
+      return "Login to your Account";
+    } else if (location.pathname === "/signup") {
+      return "Create your Account";
     } else {
       return "Welcome to Memories App";
     }
@@ -73,6 +79,12 @@ function App() {
         )} />
         
         <Route path="/posts" element={<Posts />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" component={<Signup />} />
+        {/* <Route path="/forgot-password" component={ForgotPasswordPage} */}
+        
+
         <Route path="/createpost" element={( <Grow in>
             <Container>
             

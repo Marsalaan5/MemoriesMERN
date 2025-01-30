@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import useStyles from './style';
 import { useState } from 'react';
 
+
 function Navbar() {
   const classes = useStyles();
   const navigate = useNavigate(); 
@@ -18,7 +19,7 @@ function Navbar() {
     setOpen(!open);
   };
 
-  const menuItems = ['Home', 'Posts', 'Create Post', 'About']; 
+  const menuItems = ['Home', 'Posts', 'Create Post', 'About','Login']; 
 
   return (
     <>
@@ -30,7 +31,6 @@ function Navbar() {
               Memories App
             </Typography>
 
-            {/* Hamburger Menu for mobile screens */}
             {isMobile ? (
               <IconButton
                 edge="end"
