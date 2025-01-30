@@ -60,7 +60,6 @@ function Login() {
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) {
-    
       setError(error.response ? error.response.data.message : 'Something went wrong!');
     }
   };

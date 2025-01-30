@@ -98,8 +98,9 @@ router.post('/login', async (req, res) => {
     }
 
     // Check if the password matches
-    const isPasswordCorrect = await user.comparePassword(password);
-    if(!isPasswordCorrect) {
+    const hashedPassword = await bcrypt.hash(password, 12);
+    // const isPasswordCorrect = await password.comparePassword(hashedPassword);
+    if(!hashedPassword) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
@@ -118,16 +119,16 @@ router.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
 
   try {
-    // Find user by email
+   
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Generate a password reset token (you can store it in the user model temporarily)
+   
     const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    // In a real application, you'd send the resetToken to the user's email
+   
     res.status(200).json({ message: 'Password reset link sent', resetToken });
   } catch (error) {
     console.error(error);
@@ -135,12 +136,12 @@ router.post('/forgot-password', async (req, res) => {
   }
 });
 
-// Reset password route (optional)
+
 router.post('/reset-password', async (req, res) => {
   const { resetToken, newPassword } = req.body;
 
   try {
-    // Verify the reset token
+    
     const decoded = jwt.verify(resetToken, process.env.JWT_SECRET);
 
     // Find the user by ID

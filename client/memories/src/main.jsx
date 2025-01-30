@@ -32,10 +32,10 @@ const theme = createTheme({
 });
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter> {/* Router should wrap everything */}
-    <Provider store={store}> {/* Redux Provider */}
-      <ThemeProvider theme={theme}> {/* MUI Theme */}
-        <App /> {/* Your main app component */}
+  <BrowserRouter> 
+    <Provider store={store}> 
+      <ThemeProvider theme={theme}> 
+        <App /> 
       </ThemeProvider>
     </Provider>
   </BrowserRouter>

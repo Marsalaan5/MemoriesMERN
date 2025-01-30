@@ -16,6 +16,8 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import About from "./components/About/About.jsx";
 import Login from "./components/Login/Login.jsx";
 import Signup from "./components/SignUp/Signup.jsx";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.jsx";
+
 
 function App() {
   const [currentId, setCurrentId] = useState(0);
@@ -82,9 +84,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signup" component={<Signup />} />
-        {/* <Route path="/forgot-password" component={ForgotPasswordPage} */}
-        
-
+        <Route path="/forgot-password" element={ForgotPassword} />
         <Route path="/createpost" element={( <Grow in>
             <Container>
             
@@ -104,6 +104,7 @@ function App() {
         )} />
         
         <Route path="/about" element={<About />} /> 
+        
       </Routes>
 
       <Footer className={classes.footer} />
