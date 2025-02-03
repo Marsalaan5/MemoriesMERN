@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import useStyles from "../Footer/style";
+import useStyles from "./style";
 
 
 function ForgotPassword() {

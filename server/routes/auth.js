@@ -50,7 +50,6 @@
 
 // module.exports = router;
 
-
 import express from 'express';
 import bcrypt from 'bcryptjs'; // For password hashing
 import jwt from 'jsonwebtoken'; // For creating JWTs

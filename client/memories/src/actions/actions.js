@@ -1,5 +1,6 @@
 import * as api from '../api/index.js';
 import { FETCH_ALL, CREATE, UPDATE,LIKE,DELETE} from '../constant/actionTypes';
+// import { LOGIN, LOGOUT } from '../constant/actionTypes';
 
 
 export const getPosts = () => async(dispatch)=> {
@@ -51,3 +52,21 @@ try {
     console.log(error.message);
 }
 }
+
+// actions/actions.js
+export const login = (user) => {
+    localStorage.setItem("token", user.token); // Store token in localStorage
+    return {
+      type: 'LOGIN',
+      payload: { user, isAuthenticated: true },  // Ensure payload contains both user and isAuthenticated flag
+    };
+  };
+  
+  
+    export const logout = () => {
+        localStorage.removeItem("token"); // Clear the token from localStorage
+        return {
+          type: 'LOGOUT',
+        };
+      };
+      

@@ -10,6 +10,7 @@ import reducers from './reducers/index.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles'; 
 import { BrowserRouter } from 'react-router-dom';
 
+
 // Configure Redux store
 const store = configureStore({
   reducer: reducers, 

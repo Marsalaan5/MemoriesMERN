@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
   },
   button: {
     width: '100%',
+    margin:'5px',
     padding: '12px',
     backgroundColor: '#3f51b5',
     color: '#fff',

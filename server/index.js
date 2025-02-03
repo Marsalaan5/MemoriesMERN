@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import authRoutes from './routes/authRoutes.js'
+import authRoutes from './routes/auth.js'
 
 import postRoutes from './routes/posts.js';
 
@@ -24,7 +24,7 @@ app.use('/posts', postRoutes);
 app.use('/auth', authRoutes);
 
 
-const CONNECTION_URL = process.env.MONGODB_URI; // MongoDB Atlas URL from .env
+const CONNECTION_URL = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 5000;
 
 
