@@ -12,15 +12,15 @@ function About() {
         About Memories App
       </Typography>
 
-      <Typography variant="h6" paragraph>
+      <Typography className={classes.heading} variant="h6" paragraph>
         Capture, Cherish, Relive.
       </Typography>
 
-      <Typography variant="body1" paragraph>
+      <Typography className={classes.heading} variant="body1" paragraph>
         The Memories app is your personal digital scrapbook, designed to help you preserve the moments that matter most. Whether it&apos;s a snapshot of a family reunion, a video from a vacation, or a note from a special day, Memories lets you collect and organize your life&apos;s most cherished experiences in one place.
       </Typography>
 
-      <Typography variant="body1" paragraph>
+      <Typography className={classes.heading} variant="h6" paragraph>
         With a simple, intuitive interface, you can:
       </Typography>
 

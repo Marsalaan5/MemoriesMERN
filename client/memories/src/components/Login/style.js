@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     maxWidth: '400px',
-    margin: '0 auto',
+    margin: '200px auto',
     padding: theme.spacing(2),
     backgroundColor: '#f4f4f4',
     borderRadius: '8px',

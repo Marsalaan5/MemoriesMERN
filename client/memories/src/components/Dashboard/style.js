@@ -5,8 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
       backgroundColor: theme.palette.background.default,
-      marginTop:'80px',
-      minHeight: '90vh',
+      marginTop:'100px',
+      minHeight: '70vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

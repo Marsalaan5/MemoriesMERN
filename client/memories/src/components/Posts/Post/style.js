@@ -19,6 +19,7 @@ export default makeStyles({
     justifyContent: 'space-between',
     borderRadius: '15px',
     height: '100%',
+    margin:'0px 0px',
     position: 'relative',
   },
   overlay: {
@@ -35,6 +36,8 @@ export default makeStyles({
   },
   grid: {
     display: 'flex',
+    flexDirection: 'column',
+    gap: '20px', 
   },
   details: {
     display: 'flex',

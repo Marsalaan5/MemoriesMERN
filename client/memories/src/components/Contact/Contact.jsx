@@ -1,61 +1,96 @@
-import { useForm } from "react-hook-form";
-import useStyles from "./style"; // Ensure your style file exists and is correctly imported
-import { TextField, Button, Container, Typography } from "@mui/material";
+import { useState } from 'react';
+import axios from 'axios';
+import { TextField, Button, Typography } from '@mui/material';
+import useStyles from './style';
 
-function Contact() {
-  const classes = useStyles(); // Access styles using useStyles
+const ContactForm = () => {
+  const classes = useStyles();
 
-  // Setting up form handling with react-hook-form
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  
-  // Handle form submission
-  const onSubmit = (data) => {
-    console.log(data); // Log submitted form data
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send a POST request to the backend API
+      const response = await axios.post('http://localhost:5000/auth/contact', {
+        name,
+        email,
+        message,
+      });
+
+      setStatus({ message: 'Message sent successfully!', success: true });
+    } catch (error) {
+      setStatus({ message: `There was an error sending your message. Please try again. Error: ${error.message}`, success: false });
+    }
   };
 
   return (
-    <Container className={classes.container}>
-      {/* Title/Heading */}
-      <Typography variant="h4" className={classes.title}>
+    <div className={classes.contactform}>
+      <div>
+
+      <Typography variant="h4" gutterBottom className={classes.title}>
         Contact Us
       </Typography>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-        {/* Example Field - You can customize it to your actual form field */}
+      <form onSubmit={handleSubmit} className={classes.form}>
         <TextField
-          {...register("example")}
-          defaultValue="test"
-          label="Example"
+          label="Name"
           variant="outlined"
           fullWidth
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={classes.inputField}
+          />
+        <TextField
+          label="Email"
+          variant="outlined"
+          fullWidth
+          required
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={classes.inputField}
+          />
+        <TextField
+          label="Message"
+          variant="outlined"
+          fullWidth
+          required
+          multiline
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className={classes.inputField}
         />
 
-        {/* Required Field with Validation */}
-        <TextField
-          {...register("exampleRequired", { required: "This field is required" })}
-          label="Required Field"
-          variant="outlined"
-          fullWidth
-          error={!!errors.exampleRequired} // Check if there's an error
-          helperText={errors.exampleRequired ? errors.exampleRequired.message : ""}
-          className={classes.inputField}
-        />
-
-        {/* Submit Button */}
         <Button
           type="submit"
           variant="contained"
           color="primary"
           fullWidth
           className={classes.submitButton}
-        >
-          Submit
+          >
+          Send Message
         </Button>
       </form>
-    </Container>
-  );
-}
 
-export default Contact;
+      {/* Display status message */}
+      {status && (
+        <Typography
+        variant="body1"
+        className={`${classes.statusMessage} ${status.success ? classes.successMessage : classes.errorMessage}`}
+        >
+          {status.message}
+        </Typography>
+      )}
+      </div>
+    </div>
+  );
+};
+
+export default ContactForm;

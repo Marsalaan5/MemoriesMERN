@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js'
+import nodemailer from 'nodemailer';
 
 import postRoutes from './routes/posts.js';
 
@@ -26,6 +27,15 @@ app.use('/auth', authRoutes);
 
 const CONNECTION_URL = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 5000;
+
+// Setup the email transporter using Gmail SMTP (you can change this as per your email service)
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'your-email@gmail.com', // Your email
+    pass: 'your-email-password',  // Your email password (consider using environment variables for security)
+  },
+});
 
 
 mongoose.connect(CONNECTION_URL)

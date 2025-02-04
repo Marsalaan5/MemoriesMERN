@@ -280,9 +280,9 @@
 
 
 
-import { Container, AppBar, Typography, Grow, Grid, Box } from "@mui/material";
+import { Container,Grow, Grid, Box } from "@mui/material";
 import { useDispatch} from "react-redux";
-import { Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { Route, Routes,Navigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -304,7 +304,7 @@ function App() {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
-  const location = useLocation();
+  // const location = useLocation();
 
   // Fetch posts when the app loads
   useEffect(() => {
@@ -320,41 +320,29 @@ function App() {
   }, [dispatch]);
 
   // Function to determine heading text based on route
-  const getHeadingText = () => {
-    if (location.pathname === "/about") {
-      return "About";
-    } else if (location.pathname === "/posts") {
-      return "All Posts";
-    } else if (location.pathname === "/login") {
-      return "Login to your Account";
-    } else if (location.pathname === "/signup") {
-      return "Create your Account";
-    } else if (location.pathname === "/dashboard") {
-      return '';  // No heading on dashboard
-    } else {
-      return "Welcome to Memories App";
-    }
-  };
+  // const getHeadingText = () => {
+  //   if (location.pathname === "/about") {
+  //     return "About";
+  //   } else if (location.pathname === "/posts") {
+  //     return "All Posts";
+  //   } else if (location.pathname === "/login") {
+  //     return "Login to your Account";
+  //   } else if (location.pathname === "/signup") {
+  //     return "Create your Account";
+  //   } else if (location.pathname === "/contactus") {
+  //     return ''; 
+  //   } else if (location.pathname === "/dashboard") {
+  //     return ''; 
+  //   } else {
+  //     return "Welcome to Memories App";
+  //   }
+  // };
 
   return (
     <div>
       {/* Render AppBar only if not on /dashboard */}
-      {location.pathname !== "/dashboard" && (
-        <AppBar
-          sx={{ backgroundColor: "#ADD8E7" }}
-          className={classes.appBar}
-          position="static"
-        >
-          <Typography
-            className={classes.heading}
-            variant="h4"
-            align="center"
-            fontWeight={600}
-          >
-            {getHeadingText()}
-          </Typography>
-        </AppBar>
-      )}
+
+  
 
       <Navbar />
       <Routes>
@@ -363,7 +351,7 @@ function App() {
             <Container>
               {/* Carousel Section */}
               <Box sx={{ width: "60%", margin: "auto" }}>
-                <Carousel>
+                <Carousel className={classes.carousel}>
                   {/* Add your carousel images */}
                   <div>
                     <img
@@ -436,7 +424,7 @@ function App() {
         {/* Dashboard Route */}
 
    
-        <Route path="/contactus" element={Contact} />
+        <Route path="/contactus" element={<Contact/>} />
         <Route path="/dashboard" element={<Dashboard />} />
 
         {/* Redirect to posts by default */}

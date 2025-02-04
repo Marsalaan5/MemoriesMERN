@@ -1,27 +1,52 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    maxWidth: 600,
+  contactform: {
+    display: 'flex',
+     justifyContent:'center',
+     alignItems:'center',
+    height: '70vh',         
+    marginTop: '100px',       
     padding: theme.spacing(3),
-    margin: "auto",
-    marginTop: theme.spacing(5),
+    backgroundColor: '#f4f4f9',
+    borderRadius: 8,
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   },
   title: {
-    textAlign: "center",
-    marginBottom: theme.spacing(3),
-    color: "#1976d2", // Set a color for the title
+    display:'flex',
+    fontWeight: 600,
+    textAlign: 'center',
+    marginBottom: theme.spacing(4),
+    color: '#333',
+    justifyContent: 'center',  
+    alignItems: 'center',  
   },
   form: {
-    display: "flex",
-    flexDirection: "column",
+    flexDirection: 'column',
+    gap: theme.spacing(2),
   },
   inputField: {
-    marginBottom: theme.spacing(2),
+    '& .MuiInputBase-root': {
+      marginBottom: theme.spacing(2),
+    },
   },
   submitButton: {
-    marginTop: theme.spacing(3),
-    padding: theme.spacing(1),
+    marginTop: theme.spacing(2),
+    padding: theme.spacing(1.5),
+    backgroundColor: '#3f51b5',
+    '&:hover': {
+      backgroundColor: '#303f9f',
+    },
+  },
+  statusMessage: {
+    marginTop: theme.spacing(2),
+    textAlign: 'center',
+  },
+  errorMessage: {
+    color: '#f44336',  // Red color for error
+  },
+  successMessage: {
+    color: '#4caf50',  // Green color for success
   },
 }));
 

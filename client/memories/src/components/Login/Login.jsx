@@ -734,7 +734,7 @@ function Login() {
         Forgot Password?
       </button>
 
-      <h4>Don't Have an account?</h4>
+      <h4>Don&apos;t Have an account?</h4>
       <button
         type="button"
         onClick={() => navigate('/signup')}

@@ -159,6 +159,34 @@ router.post('/reset-password', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Something went wrong' });
   }
+
+  router.post('/contact', (req, res) => {
+    const { name, email, message } = req.body;
+  
+     // Prepare email content
+     const mailOptions = {
+      from: email, // sender address
+      to: 'recipient-email@example.com', // receiver's email
+      subject: `New contact form submission from ${name}`,
+      text: `You have a new contact form submission:
+      
+      Name: ${name}
+      Email: ${email}
+      Message: ${message}
+      `,
+    };
+  
+    // Send the email using Nodemailer
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).send('Error sending message.');
+      }
+      console.log('Message sent: ' + info.response);
+      res.status(200).send('Message sent successfully!');
+    });
+  });
+  
 });
 
 export default router;
