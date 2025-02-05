@@ -53,6 +53,10 @@ const useStyles = makeStyles(() => ({
   //   marginLeft: '15px', // Add some space between the image and text
   //   padding: '2px', // Optional padding around the image
   // },
+  // container:{
+  //   margin:'140px 0'
+   
+  // },
   carousel:{
     margin:'140px 0'
   }

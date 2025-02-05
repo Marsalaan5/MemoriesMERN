@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles({
+export default makeStyles((theme)=>({
   media: {
     height: 0,
-    paddingTop: '56.25%',
+    paddingTop: '66.25%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
   },
@@ -19,7 +19,7 @@ export default makeStyles({
     justifyContent: 'space-between',
     borderRadius: '15px',
     height: '100%',
-    margin:'0px 0px',
+    // margin:'0px 0px',
     position: 'relative',
   },
   overlay: {
@@ -52,4 +52,22 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
-});
+  mainContainer: {
+    display: 'flex',
+    alignItems: 'center',
+      // margin:"100px 0px",
+    // marginTop:'110px',
+  },
+  // container:{
+  //   margin:"100px 0px",
+  // },
+  smMargin: {
+    margin: theme.spacing(1),
+  },
+  actionDiv: {
+    textAlign: 'center',
+  },
+  extContainer:{
+    marginTop:'100px'
+  }
+}));

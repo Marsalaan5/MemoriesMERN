@@ -407,7 +407,7 @@ function App() {
           path="/createpost"
           element={
             <Grow in>
-              <Container>
+              <Container className={classes.container}>
                 <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                   <Grid item xs={12} sm={8}>
                     <Posts setCurrentId={setCurrentId} />

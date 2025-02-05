@@ -162,6 +162,14 @@ router.post('/reset-password', async (req, res) => {
 
   router.post('/contact', (req, res) => {
     const { name, email, message } = req.body;
+  // Setup the email transporter using Gmail SMTP (you can change this as per your email service)
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+     user: process.env.EMAIL_USER,
+     pass: process.env.EMAIL_PASS,
+    },
+  });
   
      // Prepare email content
      const mailOptions = {

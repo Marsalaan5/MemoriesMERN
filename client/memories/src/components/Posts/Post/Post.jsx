@@ -9,11 +9,18 @@ import { useDispatch } from 'react-redux';
 import { likePost,deletePost } from '../../../actions/actions';
 import PropTypes from 'prop-types';
 
+
+
+
+
 function Post({post,setCurrentId}) {
   const dispatch =useDispatch();
   const classes = useStyles();
 
+
 return (
+  <div className={classes.extContainer}>
+
   <Card className={classes.card}>
     <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
     <div className={classes.overlay}>
@@ -35,6 +42,7 @@ return (
       <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
     </CardActions>
   </Card>
+</div>
 );
 };
 

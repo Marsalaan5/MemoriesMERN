@@ -16,7 +16,7 @@ const ContactForm = () => {
 
     try {
       // Send a POST request to the backend API
-      const response = await axios.post('http://localhost:5000/auth/contact', {
+      const response = await axios.post('http://localhost:5000/api/contact', {
         name,
         email,
         message,
